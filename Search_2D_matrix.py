@@ -44,6 +44,7 @@ class Solution:
             for j in range(pivot_y, column):
                 if matrix[i][j] == target:
                     return True
+
         return False
 
 
