@@ -8,25 +8,28 @@ class Solution:
             return
 
         output = []
-        open = n
-        close = n
-        queue = [('','(', open, close)]
+        start, close = n
+        queue = [('', '(', start, close)]
 
         while queue:
-            combo, p, open, close = queue.pop()
+            combo, p, start, close = queue.pop()
 
             if p == '(':
-                open -= 1
+                start -= 1
             elif p == ')':
                 close -= 1
             combo += p
 
-            if open == 0 and close == 0:
+            if start == 0 and close == 0:
                 output.append(combo)
             else:
-                if open > 0:
-                    queue.append((combo, '(', open, close))
-                if close > 0 and close > open:
-                    queue.append((combo, ')', open, close))
+                if start > 0:
+                    queue.append((combo, '(', start, close))
+                if close > 0 and close > start:
+                    queue.append((combo, ')', start, close))
 
         return output;
+
+
+s = Solution()
+s.generateParenthesis(4)
