@@ -13,7 +13,6 @@ class Solution:
             return None
 
         response = []
-        response_set = set()
 
         def backtrack(counter=1, combination=[], x_number_list=[]):
             if counter == k + 1:
