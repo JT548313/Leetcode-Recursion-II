@@ -3,22 +3,20 @@ import itertools
 
 
 class Solution:
-    def __init__(self):
-        self.mappings = {'2': ['a', 'b', 'c'],
-                         '3': ['d', 'e', 'f'],
-                         '4': ['g', 'h', 'i'],
-                         '5': ['j', 'k', 'l'],
-                         '6': ['m', 'n', 'o'],
-                         '7': ['p', 'q', 'r', 's'],
-                         '8': ['t', 'u', 'v'],
-                         '9': ['w', 'x', 'y', 'z']}
-
     def letterCombinations(self, digits: str) -> List[str]:
 
         if not digits:
             return None
 
-        response = []
+        phone = {'2': ['a', 'b', 'c'],
+                    '3': ['d', 'e', 'f'],
+                    '4': ['g', 'h', 'i'],
+                    '5': ['j', 'k', 'l'],
+                    '6': ['m', 'n', 'o'],
+                    '7': ['p', 'q', 'r', 's'],
+                    '8': ['t', 'u', 'v'],
+                    '9': ['w', 'x', 'y', 'z']}
+
 
         def divideAndConquer(number):
 
@@ -27,7 +25,7 @@ class Solution:
             mid = int(count_of_digits/2)
 
             if mid == 0:
-                return self.mappings.get(number[0])
+                return phone.get(number[0])
 
             list1 = divideAndConquer(number[0:mid])
             list2 = divideAndConquer(number[mid:])
